@@ -54,7 +54,6 @@ namespace WishList.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
@@ -83,7 +82,6 @@ namespace WishList.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-
         public IActionResult Logout()
         {
             _signInManager.SignOutAsync();
