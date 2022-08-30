@@ -38,12 +38,11 @@ namespace WishList.Controllers
                 return View(registerViewModel);
             }
 
-            var result =  _userManager.CreateAsync(new ApplicationUser
+            var result = _userManager.CreateAsync(new ApplicationUser
             {
                 Email = registerViewModel.Email,
-                PasswordHash = registerViewModel.Password,
                 UserName = registerViewModel.Email
-            }).Result;
+            }, registerViewModel.Password).Result;
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
